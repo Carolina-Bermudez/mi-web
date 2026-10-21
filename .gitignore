@@ -1,0 +1,44 @@
+# ==========================================================
+# .gitignore de mi web personal (repo PÚBLICO)
+# Todo lo que aparece aquí NO se sube nunca a GitHub.
+# ==========================================================
+
+# --- Secretos: claves, tokens y contraseñas ---
+# variables de entorno con claves de APIs
+.env
+# variantes: .env.local, .env.production...
+.env.*
+# ficheros de claves privadas
+*.key
+# certificados y claves
+*.pem
+# cualquier fichero con "token" en el nombre (p. ej. el ghp_ de GitHub)
+*token*
+# cualquier fichero con "secret" en el nombre
+*secret*
+# configuración local que podría llevar claves
+config.local.js
+
+# --- Dependencias (si algún día uso npm) ---
+# librerías descargadas: se reinstalan, no se suben
+node_modules/
+
+# --- Basura del sistema operativo ---
+# ficheros ocultos que crea macOS en cada carpeta
+.DS_Store
+# miniaturas que crea Windows
+Thumbs.db
+# configuración de carpetas de Windows
+desktop.ini
+
+# --- Temporales del editor ---
+# ajustes personales de Visual Studio Code
+.vscode/
+# ajustes de los editores de JetBrains
+.idea/
+# temporales de Vim
+*.swp
+# copias de seguridad automáticas de algunos editores
+*~
+# ficheros temporales en general
+*.tmp
