@@ -1,0 +1,58 @@
+PROMPTS CLAVE A LA IA · Web personal de marca · Carolina Bermúdez
+Asistente usado: Claude
+=================================================================
+
+05/10/2026 · Contenido inicial de la web
+Para qué: que la IA conociera quién soy y generara la primera versión.
+Prompt:
+  "Soy Carolina Bermúdez, tengo 47 años, he estudiado marketing, un poco de
+  contabilidad, derecho, filosofía. Me gusta crear empresas, he creado dos
+  físicas pero ya no las tengo, ahora me interesan las digitales. Me gusta
+  mucho escribir. [Pegué la tabla del profesor con los 6 bloques: cabecera,
+  sobre mí, lo que he hecho, me gusta, contacto, pie] Quiere que me des un
+  html, css y javascript."
+Resultado: index.html, style.css y script.js con los 6 bloques.
+
+05/10/2026 · La web salía sin estilos
+Para qué: arreglar el primer error.
+Prompt:
+  "No sé por qué no funciona, mis archivos se llaman index.html, style.css,
+  script.js"
+Resultado: el HTML enlazaba "styles.css" y mi archivo era "style.css".
+Lección: los nombres de archivo tienen que coincidir exactamente.
+
+05/10/2026 · Tamaño
+Para qué: la web se veía pequeña en pantalla grande.
+Prompt:
+  "La veo muy pequeña y en el centro, me parece que debería estar un poco
+  más grande." [con captura de pantalla]
+Resultado: ancho máximo de 960px a 1240px y tipografías más grandes.
+
+05/10/2026 · Foto personal
+Para qué: usar una foto real mía en la cabecera.
+Prompt:
+  "Yo soy la de negro, ¿puedes arreglar la foto para ponerla en la web? sin
+  el plato, sin la chica de al lado y sin lo que veas necesario."
+Resultado: foto recortada (img/carolina.jpg) y colocada en la cabecera.
+
+05/10/2026 · Colores de marca
+Para qué: dar personalidad a la cabecera.
+Prompt:
+  "No me gusta la foto con el marco ese y toda esa parte
+  de mi nombre quiero que tenga otro color a juego con la foto, porque la veo
+  muy simple." [adjunté mi index.html modificado]
+Resultado: cabecera en tonos noche y dorado sacados de la foto; foto redonda.
+
+15/10/2026 · Elegir una API
+Para qué: el profesor pide que la web consuma una API.
+Prompt:
+  "El profesor nos pidió que incluyéramos una API a esta web, ¿se te ocurre
+  alguna que pueda tener algo que ver con mi web?"
+Resultado: propuestas (GitHub, Open Library, Wikipedia, Formspree).
+
+20/10/2026 · Publicar en GitHub Pages
+Para qué: seguir el tutorial "Publica tu web y domina GitHub".
+Prompt:
+  [Adjunté el PDF del tutorial] "Continuando con el proyecto, te paso lo
+  siguiente que tengo que hacer."
+Resultado: .gitignore, revisión de rutas y este archivo de prompts.
