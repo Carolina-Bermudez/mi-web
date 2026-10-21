@@ -883,3 +883,25 @@ body {
     background: var(--accent);
     color: var(--paper);
 }
+/* =========================================================
+   PIE EN TONOS NOCHE + DORADO (como la cabecera)
+   ========================================================= */
+.footer {
+    background: var(--night);
+    color: rgba(246, 236, 220, .7);
+    border-top: none;
+    padding-top: 40px;
+    padding-bottom: 44px;
+    margin-top: 40px;
+    /* El fondo ocupa todo el ancho, igual que en la cabecera */
+    box-shadow: 0 0 0 100vmax var(--night);
+    clip-path: inset(0 -100vmax);
+}
+
+.footer p:first-child {
+    color: var(--cream);
+}
+
+.footer__detail {
+    color: var(--gold);
+}
