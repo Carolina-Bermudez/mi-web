@@ -664,3 +664,114 @@ main,
         max-width: 260px;
     }
 }
+/* =========================================================
+   AJUSTE DE TAMAÑOS (21/10): en el portátil se veía enorme
+   ========================================================= */
+:root {
+    --max: 1100px;
+}
+
+body {
+    font-size: 17px;
+}
+
+.nav__logo {
+    font-size: 1.5rem;
+}
+
+.nav__menu {
+    gap: 28px;
+}
+
+.nav__menu a {
+    font-size: .95rem;
+}
+
+.hero__kicker {
+    font-size: .85rem;
+    margin-bottom: 18px;
+}
+
+.hero__title {
+    font-size: clamp(1.9rem, 4.1vw, 3.7rem);
+}
+
+.hero__phrase {
+    font-size: clamp(1.05rem, 1.25vw, 1.25rem);
+    margin: 24px 0 32px;
+    max-width: 42ch;
+}
+
+.btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+}
+
+.section {
+    padding: 90px 0;
+}
+
+.section__num {
+    font-size: .95rem;
+}
+
+.section__title {
+    font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+    margin-bottom: 32px;
+}
+
+.about__lead {
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+}
+
+.timeline h3 {
+    font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+}
+
+.like {
+    padding: 28px;
+}
+
+.like__icon {
+    font-size: 1.8rem;
+}
+
+.like h3 {
+    font-size: 1.25rem;
+}
+
+.like p {
+    font-size: .95rem;
+}
+
+.contact__email {
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+}
+
+.contact__links a {
+    padding: 10px 22px;
+    font-size: 1rem;
+}
+
+.footer {
+    font-size: .9rem;
+}
+
+/* Solo en pantallas grandes (en el móvil se queda como estaba) */
+@media (min-width: 721px) {
+    .hero__photo {
+        flex-basis: clamp(220px, 26vw, 360px);
+    }
+
+    .timeline__item {
+        grid-template-columns: 140px 1fr;
+        gap: 24px;
+        padding: 28px 0;
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        font-size: 16px;
+    }
+}
