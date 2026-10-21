@@ -781,3 +781,105 @@ html,
 body {
     overflow-x: clip;
 }
+/* =========================================================
+   TARJETA «LOS RETOS» con foto en blanco y negro
+   ========================================================= */
+.like--foto {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    min-height: 240px;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+}
+
+/* La foto ocupa toda la tarjeta, en blanco y negro */
+.like--foto img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 15%;
+    /* centrada en mí, que estoy arriba */
+    filter: grayscale(1) contrast(1.1);
+    transition: transform .6s ease;
+}
+
+/* Degradado oscuro abajo para que el texto se lea */
+.like--foto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(20, 14, 9, .92) 0%, rgba(20, 14, 9, .6) 45%, rgba(20, 14, 9, .1) 80%, transparent 100%);
+}
+
+.like__texto {
+    position: relative;
+    z-index: 1;
+    padding: 24px 28px;
+}
+
+.like--foto h3 {
+    color: var(--gold, #e8b25c);
+}
+
+.like--foto p {
+    color: rgba(255, 255, 255, .88);
+}
+
+/* Al pasar el ratón, la foto se acerca un poco: invita a mirarla */
+.like--foto:hover {
+    background: var(--paper-dark);
+}
+
+.like--foto:hover img {
+    transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .like--foto img {
+        transition: none;
+    }
+
+    .like--foto:hover img {
+        transform: none;
+    }
+}
+
+/* Con 4 tarjetas + esta, la de los retos ocupa 2 columnas
+   para que la segunda fila quede completa (solo en pantallas grandes) */
+@media (min-width: 721px) {
+    .like--foto {
+        grid-column: span 2;
+    }
+}
+/* =========================================================
+   ICONOS SVG PROPIOS de «Me gusta» (sustituyen a los emojis)
+   Todos con el mismo trazo: línea de 1,75 y puntas redondeadas.
+   Usan currentColor: toman el color que les dé el CSS.
+   ========================================================= */
+.like__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    margin-bottom: 18px;
+    transition: background .25s, color .25s;
+}
+
+.like__icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+/* Al pasar por la tarjeta, el icono se invierte: marca cuál estás mirando */
+.like:hover .like__icon {
+    background: var(--accent);
+    color: var(--paper);
+}
