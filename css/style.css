@@ -775,3 +775,9 @@ body {
         font-size: 16px;
     }
 }
+/* Evita la barra de desplazamiento horizontal: el fondo de la cabecera
+   se extiende a todo el ancho y se "salía" por los lados */
+html,
+body {
+    overflow-x: clip;
+}
