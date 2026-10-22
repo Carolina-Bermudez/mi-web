@@ -47,6 +47,11 @@
       claves: ["empresa", "negocio", "emprend", "ribera", "punt rec", "reciclaje", "jardin", "experiencia", "fundadora", "trayectoria"],
       respuesta: "Ha fundado dos empresas: Ribera Verde, de jardinería, en 2008, y Punt Rec recuperaciones, de reciclaje, en 2015. Gestión, clientes, marketing… un poco de todo. Ahora quiere llevar esa experiencia al mundo digital."
     },
+    { // NUEVO en v2 (prueba trampa 1): antes no sabía qué decir del horario
+      tema: "horario",
+      claves: ["horario", "atiende", "disponib", "a que hora", "horas"],
+      respuesta: `Yo estoy disponible las 24 horas, ¡no necesito café! ☕ Para hablar con Carolina, escríbele a ${CORREO} y te contestará en cuanto pueda.`
+    },
     {
       tema: "formacion",
       claves: ["marketing", "contabilidad", "derecho", "filosofia", "formacion", "carrera"],
@@ -69,7 +74,7 @@
     },
     {
       tema: "quien",
-      claves: ["quien eres", "que eres", "como te llamas", "alison", "bot", "robot", "creado", "creo", "eres una ia"],
+      claves: ["quien eres", "que eres", "como te llamas", "alison", "bot", "robot", "te ha creado", "te creo", "te ha hecho", "eres una ia"],
       respuesta: "Soy Alison, la asistente de la web de Carolina Bermúdez. No soy una IA de las que se lo inventan todo: cada respuesta mía la ha escrito Carolina, así que solo digo cosas ciertas. 😄"
     },
     {
@@ -99,16 +104,21 @@
     return " " + texto.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[¿?¡!.,;:]/g, " ") + " ";
   }
 
-  // El árbol: cuenta cuántas palabras clave de cada rama aparecen y elige la mejor
+  // El árbol: cuenta cuántas palabras clave de cada rama aparecen.
+  // v2: si la pregunta toca varios temas, responde a los 2 con más coincidencias
+  // (antes solo respondía a uno y la otra parte de la pregunta se perdía).
+  const MAXIMO_TEMAS = 2;
   function elegirRespuesta(pregunta) {
     const texto = normalizar(pregunta);
-    let mejor = null, mejorPuntos = 0;
+    const encontradas = [];
     for (const rama of RAMAS) {
       const puntos = rama.claves.filter(clave => texto.includes(clave)).length;
       if (rama.tema === "privado" && puntos > 0) return rama.respuesta; // lo privado manda siempre
-      if (puntos > mejorPuntos) { mejor = rama; mejorPuntos = puntos; }
+      if (puntos > 0) encontradas.push({ rama, puntos });
     }
-    return mejor ? mejor.respuesta : POR_DEFECTO;
+    if (encontradas.length === 0) return POR_DEFECTO;
+    encontradas.sort((x, y) => y.puntos - x.puntos);   // las de más coincidencias, primero
+    return encontradas.slice(0, MAXIMO_TEMAS).map(e => e.rama.respuesta).join("\n\n");
   }
 
   // ---- Estilos del chat (van aquí dentro para no tocar style.css) ----
@@ -129,7 +139,7 @@
     .bot-cabecera small { display: block; font-size: .75rem; opacity: .7; }
     .bot-cerrar { background: none; border: none; color: #f6ecdc; font-size: 1.4rem; cursor: pointer; line-height: 1; }
     .bot-historial { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-    .bot-msg { max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: .92rem; line-height: 1.45; overflow-wrap: anywhere; }
+    .bot-msg { white-space: pre-line; max-width: 85%; padding: 10px 14px; border-radius: 16px; font-size: .92rem; line-height: 1.45; overflow-wrap: anywhere; }
     .bot-msg--alison { background: #ece4d6; color: #23201c; align-self: flex-start; border-bottom-left-radius: 4px; }
     .bot-msg--yo { background: #c2502e; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
     .bot-escribiendo span { display: inline-block; width: 6px; height: 6px; margin: 0 2px; border-radius: 50%; background: #5e574e; animation: bot-punto 1s infinite; }
