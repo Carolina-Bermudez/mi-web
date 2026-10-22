@@ -905,3 +905,92 @@ body {
 .footer__detail {
     color: var(--gold);
 }
+/* =========================================================
+   WIDGET «AHORA MISMO EN GITHUB» (datos de la API)
+   ========================================================= */
+.widget {
+    margin-top: 40px;
+    padding: 28px 32px;
+    border-radius: 20px;
+    background: var(--night);
+    color: var(--cream);
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.gh {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.gh__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    background: var(--night-2);
+}
+
+.gh__datos {
+    flex: 1 1 260px;
+}
+
+.gh__titulo {
+    font-size: .8rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+}
+
+.gh__cifras {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 28px;
+}
+
+.gh__cifras strong {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--gold);
+    margin-right: 4px;
+}
+
+.gh__update {
+    margin-top: 6px;
+    font-size: .92rem;
+    color: rgba(246, 236, 220, .7);
+}
+
+.gh__update time {
+    color: var(--cream);
+}
+
+.gh__btn {
+    padding: 12px 22px;
+    border: 1.5px solid var(--cream);
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background .2s, color .2s;
+}
+
+.gh__btn:hover {
+    background: var(--cream);
+    color: var(--night);
+}
+
+.gh__cargando,
+.gh__error {
+    color: rgba(246, 236, 220, .75);
+}
+
+.gh__error a {
+    color: var(--gold);
+}
