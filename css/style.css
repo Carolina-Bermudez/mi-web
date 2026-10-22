@@ -994,3 +994,62 @@ body {
 .gh__error a {
     color: var(--gold);
 }
+/* =========================================================
+   LOGO SVG PROPIO: mis iniciales delante de un brote con raíces
+   ========================================================= */
+.nav__logo {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    color: #4a3020;
+    /* letras en marrón sobre fondo claro */
+    --brote: #c9923f;
+    /* brote en dorado oscuro sobre fondo claro */
+}
+
+.nav:not(.scrolled) .nav__logo {
+    color: var(--cream);
+    /* letras en crema sobre la cabecera oscura */
+    --brote: var(--gold);
+    /* brote en dorado */
+}
+
+.nav__logo .logo {
+    height: 58px;
+    width: auto;
+    transition: transform .2s ease;
+}
+
+.nav__logo .brote {
+    stroke: var(--brote);
+}
+
+.nav__logo .hojas {
+    fill: var(--brote);
+    transform-box: view-box;
+    transform-origin: 32px 14px;
+    /* las hojas giran desde el tallo */
+    transition: transform .3s ease;
+}
+
+/* Al pasar el ratón: el logo se levanta 2 px y las hojas se mecen */
+.nav__logo:hover .logo {
+    transform: translateY(-2px);
+}
+
+.nav__logo:hover .hojas {
+    transform: rotate(-8deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .nav__logo .logo,
+    .nav__logo .hojas {
+        transition: none;
+    }
+
+    .nav__logo:hover .logo,
+    .nav__logo:hover .hojas {
+        transform: none;
+    }
+}

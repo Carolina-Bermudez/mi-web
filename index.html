@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carolina Bermúdez · Marca personal</title>
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%2322170f'/><text x='32' y='43' font-size='30' text-anchor='middle' font-family='Georgia,serif' fill='%23e8b25c'>CB</text></svg>">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta name="description"
         content="Carolina Bermúdez: emprendedora y estudiante de desarrollo de aplicaciones.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +20,28 @@
 
     <!-- ===== NAVEGACIÓN ===== -->
     <header class="nav">
-        <a href="#inicio" class="nav__logo">CB<span>.</span></a>
+        <!-- Logo propio en SVG: mis iniciales delante de un brote con raíces, en segundo plano
+                     (primero raíces, luego crecimiento). Las letras usan currentColor -->
+        <a href="#inicio" class="nav__logo" aria-label="Carolina Bermúdez, volver al inicio">
+            <svg class="logo" viewBox="8 9 48 52" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Fondo: el brote (hojas, tallo, tierra y raíces), pequeño y suave -->
+                <g class="brote" opacity=".55" transform="translate(32 42) scale(0.72) translate(-32 -42)" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path class="hojas"
+                        d="M32 15 C26 14 22 9.5 21 3 C27 4 31 8 32 15 Z M32 12 C37 10 41 5.5 42 0.5 C36.5 1.5 32.5 6 32 12 Z"
+                        stroke="none" />
+                    <path d="M32 9 V44" stroke-width="2.2" />
+                    <path d="M8 44 H56" stroke-width="1.6" />
+                    <path
+                        d="M32 44 V62 M32 48 C27 51 22 52 16 58 M32 48 C37 51 42 52 48 58 M32 53 C29 56 26 58 24 63 M32 53 C35 56 38 58 40 63 M16 58 C14 59.5 11 60 9 60 M48 58 C50 59.5 53 60 55 60"
+                        stroke-width="1.5" />
+                </g>
+                <!-- Delante: mis iniciales CB en letra Lora, convertidas en trazos -->
+                <path
+                    d="M29.27 28.69Q28.94 25.98 27.40 24.52Q25.87 23.06 23.43 23.05Q21.85 23.05 20.52 23.74Q19.20 24.43 18.25 25.67Q17.29 26.91 16.77 28.60Q16.24 30.29 16.24 32.32Q16.24 35.06 17.21 37.16Q18.17 39.27 19.86 40.45Q21.56 41.63 23.71 41.63Q25.64 41.63 27.52 40.71Q29.40 39.80 30.62 38.10L31.61 38.96Q30.26 40.81 28.72 41.79Q27.19 42.78 25.68 43.13Q24.18 43.48 22.95 43.48Q20.68 43.48 18.80 42.66Q16.92 41.85 15.55 40.39Q14.19 38.94 13.45 37.00Q12.72 35.07 12.72 32.82Q12.72 30.71 13.37 28.70Q14.02 26.69 15.31 25.07Q16.61 23.44 18.58 22.48Q20.55 21.52 23.16 21.52Q24.67 21.52 26.13 21.94Q27.60 22.37 28.93 23.23L28.79 21.73H30.64V28.69ZM35.10 43.0V41.68Q36.09 41.65 36.52 41.27Q36.96 40.89 37.07 40.13Q37.19 39.38 37.19 38.24V26.01Q37.19 25.20 37.22 24.56Q37.26 23.92 37.29 23.53Q36.77 23.56 36.17 23.59Q35.57 23.61 35.10 23.64V22.0Q36.88 21.97 38.69 21.95Q40.49 21.94 42.38 21.94Q45.90 21.93 47.92 23.20Q49.93 24.47 49.84 27.17Q49.82 28.10 49.29 29.02Q48.76 29.94 47.72 30.65Q46.67 31.36 45.10 31.69V31.74Q48.30 31.89 49.89 33.41Q51.48 34.92 51.48 37.09Q51.48 38.95 50.55 40.28Q49.61 41.60 48.00 42.30Q46.39 43.0 44.33 43.0ZM40.27 41.49Q40.77 41.51 41.38 41.52Q41.99 41.53 42.54 41.52Q43.09 41.52 43.36 41.52Q45.51 41.49 46.74 40.36Q47.98 39.23 47.98 37.18Q47.98 35.49 47.31 34.55Q46.64 33.60 45.56 33.21Q44.48 32.82 43.24 32.82Q42.39 32.82 41.72 32.83Q41.05 32.84 40.37 32.89V39.05Q40.37 39.86 40.35 40.48Q40.33 41.10 40.27 41.49ZM40.37 31.41 42.35 31.36Q43.91 31.33 44.82 30.70Q45.72 30.07 46.12 29.08Q46.52 28.09 46.50 26.99Q46.48 25.51 45.84 24.73Q45.21 23.94 44.29 23.64Q43.37 23.34 42.45 23.35Q41.63 23.35 41.18 23.58Q40.73 23.81 40.55 24.41Q40.37 25.00 40.37 26.13Z"
+                    fill="currentColor" />
+            </svg>
+        </a>
         <button class="nav__toggle" aria-label="Abrir menú" aria-expanded="false">
             <span></span><span></span>
         </button>
