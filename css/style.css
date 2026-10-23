@@ -1086,3 +1086,24 @@ body {
     font-size: .95rem;
     color: var(--ink-soft);
 }
+/* =========================================================
+   VÍDEO DEMO
+   ========================================================= */
+.demo {
+    margin-top: 40px;
+    max-width: 820px;
+}
+
+.demo video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    background: var(--night);
+}
+
+.demo figcaption {
+    margin-top: 10px;
+    font-size: .92rem;
+    color: var(--ink-soft);
+}
